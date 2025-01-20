@@ -18,10 +18,9 @@ from django.urls import path, include
 # from blog import views as blog_views
 
 urlpatterns = [
-    # path('blog/', blog_views.my_blog, name='blog'), # This is the old way of doing it
-    path('about/', include('about.urls'), name="about-urls"), # This is the new way of doing it
-    path('accounts/', include('allauth.urls')), # Add the allauth urls to the list of urlpatterns
+    path('about/', include('about.urls'), name="about-urls"),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('', include('blog.urls'), name="blog-urls"), # This is the new way of doing it
+    path('', include('blog.urls'), name="blog-urls"),
 ]

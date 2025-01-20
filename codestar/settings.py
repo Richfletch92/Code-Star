@@ -27,13 +27,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-dwrb93nv-7+q!e_@ay3+csnxk8!dr1x)j32%!w$cvy7#@7apfv'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '8000-richfletch92-codestar-hpizwa567xr.ws.codeinstitute-ide.net',]
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '8000-richfletch92-codestar-hpizwa567xr.ws.codeinstitute-ide.net', ]
 
 
 # Application definition
@@ -52,10 +51,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap5',
-    'django_summernote', # Add the django_summernote app to the list of installed apps
-    'cloudinary', # Add the cloudinary app to the list of installed apps
-    'blog', # Add the blog app to the list of installed apps
-    'about', # Add the about app to the list of installed apps
+    'django_summernote',  # Add the django_summernote app to the list of installed apps
+    'cloudinary',  # Add the cloudinary app to the list of installed apps
+    'blog',  # Add the blog app to the list of installed apps
+    'about',  # Add the about app to the list of installed apps
 ]
 
 SITE_ID = 1
@@ -67,7 +66,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # Add the WhiteNoise middleware after the security middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add the WhiteNoise middleware after the security middleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -82,7 +81,7 @@ ROOT_URLCONF = 'codestar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR], # Add the templates directory to the list of directories
+        'DIRS': [TEMPLATES_DIR],  # Add the templates directory to the list of directories
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -96,17 +95,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'codestar.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
